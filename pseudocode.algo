@@ -1,0 +1,111 @@
+
+/*
+//Greet the USER
+
+SEQUENCE GAME 
+    SET modes TO ARRAY (Very easy(1), Easy(2), Medium(3), Difficult(4), Very difficult(5))
+    INIT favoriteNum TO EMPTY
+    INIT guessNum TO EMPTY
+    BOOL gameover TO false
+    SHOW modes 
+    Display "[1] Very Easy (1-20), infinate tries"
+            "[2] Easy (1-10), 5 tries"
+            "[3] Medium (1-100), 5 tries"
+            "[4] Difficult (1-500), 5 tries"
+            "[5] Very Difficult (1-1000), 9 tries";
+   
+   
+    GET USER input ''Getting user input for game mode
+
+    IF USER input EQUAL TO 1 THEN:
+        SET favoriteNum TO random number between 1 and 10 (including 1 and 10)
+        DISPLAY "Let's play a game! Guess my favorite number"
+        SET GuessedNum TO USER input to initialize the variable (as it will give the guessed number) a value.
+        
+        CALL SEQUENCE FUNCIONFORFEEDBACK
+    
+    ELSEIF USER input EQUAL TO 2 THEN:
+        SET favoriteNum TO value FROM  1-10
+        DISPLAY "Let's play a game! Guess my favorite number"
+        SET GuessedNum TO USER input to initialize the variable (as it will give the guessed number) a value.
+        
+        CALL SEQUENCE FUNCIONFORFEEDBACK
+    
+    ELSEIF USER input EQUAL TO 3 THEN:
+        SET favoriteNum TO value FROM  1-100
+        DISPLAY "Let's play a game! Guess my favorite number"
+        SET GuessedNum TO USER input to initialize the variable (as it will give the guessed number) a value.
+        
+        CALL SEQUENCE FUNCIONFORFEEDBACK
+    
+    ELSEIF USER input EQUAL TO 4 THEN:
+        SET favoriteNum TO value FROM  1-500
+        DISPLAY "Let's play a game! Guess my favorite number"
+        SET GuessedNum TO USER input to initialize the variable (as it will give the guessed number) a value.
+        
+        CALL SEQUENCE FUNCIONFORFEEDBACK
+    
+    ELSEIF USER input EQUAL TO 5 THEN:
+        SET favoriteNum TO value FROM  1-1000
+        DISPLAY "Let's play a game! Guess my favorite number"
+        SET guessedNum TO USER input
+        CALL SEQUENCE FUNCIONFORFEEDBACK        
+    
+    
+    ENDIF
+
+        SEQUENCE FUNCIONFORFEEDBACK
+        
+        init DifferenceBetweenValues
+        DifferenceBetweenValues = FavoriteNum - GuessedNum (MEDIAN NUM)
+
+        WHILE 
+            //   IF the USER is correct, break out of the loop                    
+                //DISPLAY "You're right, that is my favorite number!"
+                        
+            //  IF guesedsNum is within DifferenceBetweenValues of the favorite number
+                //DISPLAY "You're close, but not quite there, keep trying :D"
+                    //GET guessedNum 
+                    //SET guessedNum to USER input
+                        // SHOW number of current guesses left
+                            //DISPLAY "guess again:"
+            //  IF guessedNum is DifferenceBetweenValues from the favorite number
+                //DISPLAY "You're not even close, but thats okay. Keep trying :D"
+                    //GET guessedNum
+                    //SET guessedNum to USER input
+                        // SHOW number of current guesses left
+                            //DISPLAY "guess again:"
+            
+            // IF the guessedNum is greater than the max value
+                //DISPLAY "I said between 1 and (max value), " SHOW GuessedNum "  is greater than (max value)"
+                    //DISPLAY "guess again:"
+                        //GET guessedNum
+                        //SET guessedNum to USER input
+
+            // IF the guessedNum is lesser than the min value
+                //DISPLAY "I said between 1 and (max value), " SHOW GuessedNum "  is less than than 1"
+                    //DISPLAY "guess again:"
+                        //GET guessedNum
+                        //SET guessedNum to USER input
+                       
+            //   IF all guesses are used
+                //DISPLAY "You ran out of tries!"
+                    //DISPLAY "You used " SHOW GuessedNum "tries and still got it wrong LMAOOO!!! how does it feel to be gaslit by a computer? probably just as bad as your guessing skills."
+                //End game
+                                
+            //End of LOOP over guesses
+            //PRINT out the number of guesses USER used
+        ENDWHILE 
+        END SEQUENCE
+
+            //IF gameover = true
+                //DISPLAY "try again? y or n"
+                //SET user input 
+
+                    //IF USER input = "y"
+                        //RESTART SEQUENCE GAME
+                    //IF USER input = "n"
+                        //ENDSEQUENCE
+
+ENDSEQUENCE  
+CALL game
